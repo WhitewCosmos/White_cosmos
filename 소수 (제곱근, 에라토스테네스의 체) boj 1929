@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+int a[1000001];
+
+int main(void) {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int M, N;
+  cin >> M >> N;
+  for (int i = 2; i <= N; i++) {
+    a[i] = i;
+  }
+  for (int i = 2; i <= sqrt(N); i++) {          //제곱근을 넘어가면서부터 몫과 나누는 값이 서로 바뀜
+    if (a[i] == 0)
+      continue;
+    for (int j = i * i; j <= N; j += i) {      // 제곱부터 시작
+      a[j] = 0;
+    }
+  }
+  for (int i = M; i <= N; i++) {
+    if (a[i] != 0) {
+      cout << a[i] << '\n';
+    }
+  }
+  return 0;
+}
