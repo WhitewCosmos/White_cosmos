@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main(void) {
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+
+  int N;
+  int cnt = 0;
+
+  cin >> N;
+
+  for (int i = 1; i <= N; i *= 10) {
+    cnt += N - i + 1;               // N - i + 1: i 자릿수의 개수!!!!! 누적합이 고로 자릿수로 
+  }
+
+  cout << cnt;
+  return 0;
+}
